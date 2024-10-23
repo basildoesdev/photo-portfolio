@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+*{
+    font-family: "Macondo", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+    padding: 20px; 
+}
+
+.header-icon {
+    position: absolute; 
+    right: 30px; 
+    height: 50px; 
+}
+
+.header h1 {
+    margin: 0; 
+    text-align: center; 
+    flex: 1; }
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+}
+
+.hero {
+    position: relative;
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+.parallax-bg {
+    background-image: url('./images/hero-image.jpg'); 
+    background-attachment: fixed; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    border-top: 2px soild #333;
+}
+
+.hero h2 {
+    position: relative; 
+    z-index: 1; 
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    font-size: 2.5em; 
+    text-align: center; 
+    margin-top: 20%; 
+}
+
+.gallery {
+    padding: 50px 20px;
+    background-color: aliceblue;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery-grid img {
+    width: 100%; 
+    height: 200px; 
+    border-radius: 8px; 
+    object-fit: cover; 
+}
+
+.testimonials {
+    background-image: url('/images/background-testi-grunge.jpg'); 
+    background-attachment: fixed; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    padding: 40px; 
+    color: #f9f9f9; 
+    position: relative; 
+    z-index: 1; 
+}
+
+.testimonial-container {
+    margin: 20px 0; 
+    background: rgba(0, 0, 0, 0.6); 
+    padding: 20px; 
+    border-radius: 8px; 
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+#testimonials-heading{
+    color: #e0dddd;
+    text-shadow: 0 0 5px black;
+}
+
+blockquote {
+    font-style: italic; 
+    margin: 0; 
+    padding: 10px 20px; 
+}
+
+cite {
+    display: block; 
+    margin-top: 10px; 
+    font-weight: bold; 
+}
+
+.about, .contact {
+    padding: 50px 20px; 
+}
+
+.about {
+    background-color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .hero h2 {
+        font-size: 2em; 
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 10px; 
+    }
+
+    .about-container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .about-img {
+        width: 80%; 
+        height: auto; 
+    }
+
+    .about-text {
+        text-align: center; 
+        padding: 0 10px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 1.5em; 
+    }
+
+    .submit-btn {
+        width: 100%; 
+        padding: 15px; 
+    }
+}
+
+/* Gallery Section */
+.gallery {
+    border-top: 2px solid #555;
+    padding: 50px 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+   
+    
+}
+
+.lightbox-description {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.3rem;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+/* About Section */
+.about {
+    border-top: 2px solid #555;
+    padding: 50px 20px;
+    background-color: #ccc;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-img {
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.about-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* About Image Hover Effect */
+.about-img:hover {
+    transform: scale(1.05);
+}
+
+/* Animation: Fade-in when in view */
+.about-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-in-out;
+}
+
+.about-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact {
+    border-top: 2px solid #555;
+    padding: 40px 20px; 
+    background-color: #e6dede; 
+    text-align: center; 
+}
+
+.contact h2 {
+    margin-bottom: 20px; 
+    font-size: 2em; 
+}
+
+#contact-form {
+    max-width: 600px; 
+    margin: 0 auto; 
+    background-color: white; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    color: #555; 
+}
+
+.form-group input,
+.form-group textarea {
+    width: 80%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    transition: border-color 0.3s; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007BFF; 
+    outline: none; 
+}
+
+.submit-btn {
+    background-color: #5a5a5a; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.submit-btn:hover {
+    background-color: #0056b3; 
+}
+
+.footer {
+    background-color: #333; 
+    color: white; 
+    padding: 10px; 
+    text-align: center; 
+    border-top: 1px solid white;
+}
+
+.footer a {
+    color: white; 
+    text-decoration: none; 
+}
+
+.footer svg:hover {
+    /* text-decoration: underline;  */
+    fill:#926002;
+}
+
+/* Responsive Styling for Footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px; 
+    }
+}

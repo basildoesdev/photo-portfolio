@@ -1,0 +1,332 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Align items vertically */
+    position: relative; /* Allow absolute positioning for the image */
+    padding: 20px; /* Add padding to the header */
+}
+
+.header-icon {
+    position: absolute; /* Position the image absolutely */
+    right: 30px; /* Align image 30px from the right edge */
+    height: 50px; /* Set a height for the icon (adjust as needed) */
+}
+
+.header h1 {
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center the text */
+    flex: 1; /* Allow the text to take up remaining space */
+}
+
+h2{
+    text-align: center;
+    color:#333;
+}
+
+.hero {
+    position: relative;
+    height: 100vh; /* Full height of the viewport */
+    overflow: hidden; /* Prevents overflow if the content exceeds the height */
+}
+
+.parallax-bg {
+    background-image: url('./images/pexels-emiliano-arano-1352092.jpg'); /* Replace with your image */
+    background-attachment: fixed; /* Fixed position for the parallax effect */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-size: cover; /* Cover the entire section */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it is behind other content */
+}
+
+.hero h2 {
+    position: relative; /* Positioning for layering */
+    z-index: 1; /* Bring text above the background */
+    color: white; /* Text color for contrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+    font-size: 2.5em; /* Adjust font size as needed */
+    text-align: center; /* Center text */
+    margin-top: 20%; /* Space from the top */
+}
+
+.gallery {
+    padding: 50px 20px;
+    background-color: aliceblue;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery-grid img {
+    width: 100%;            /* Maintain full width */
+    height: 200px;         /* Set a fixed height (adjust as needed) */
+    border-radius: 8px;    /* Keep rounded corners */
+    object-fit: cover;     /* Ensure images cover the area without distortion */
+}
+
+.testimonials {
+    border-top: 2px solid #555;
+    background-color: #f9f9f9; /* Light background */
+    padding: 40px;
+    text-align: center; /* Center the text */
+}
+
+.testimonial-container {
+    margin: 0 auto;
+    max-width: 600px; /* Limit width for better readability */
+}
+
+blockquote {
+    font-style: italic;
+    margin: 0;
+    padding: 10px 20px;
+    border-left: 5px solid #ccc; /* Optional styling */
+}
+
+cite {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+
+.about, .contact {
+    padding: 50px 20px; 
+
+}
+.about{
+    background-color: #bbb;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+.hero {
+    height: 100vh;
+}
+}
+
+/* Gallery Section */
+.gallery {
+    border-top: 2px solid #555;
+    padding: 50px 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery-item {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+/* About Section */
+.about {
+    border-top: 2px solid #555;
+    padding: 50px 20px;
+    background-color: #ccc;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-img {
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.about-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* About Image Hover Effect */
+.about-img:hover {
+    transform: scale(1.05);
+}
+
+/* Animation: Fade-in when in view */
+.about-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-in-out;
+}
+
+.about-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact {
+    border-top: 2px solid #555;
+    padding: 40px 20px; /* Add some padding for better spacing */
+    background-color: #e6dede; /* Light background for contrast */
+    text-align: center; /* Center-align text for a cleaner look */
+}
+
+.contact h2 {
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 2em; /* Increase font size for prominence */
+    /* Darker color for better readability */
+}
+
+#contact-form {
+    max-width: 600px; /* Set a max width for the form */
+    margin: 0 auto; /* Center the form */
+    background-color: white; /* Background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Inner padding for form elements */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+.form-group label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Space below the label */
+    font-weight: bold; /* Bold for emphasis */
+    color: #555; /* Softer color for labels */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 80%; /* Full width for inputs */
+    padding: 10px; /* Padding inside the inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded edges */
+    font-size: 1em; /* Font size for inputs */
+    resize: vertical; /* Allow vertical resize for textarea */
+}
+
+.form-group textarea {
+    min-height: 100px; /* Set a minimum height for the textarea */
+}
+
+.submit-btn {
+    background-color: #555; /* Primary color for button */
+    color: white; /* White text for contrast */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded edges */
+    padding: 10px 20px; /* Padding for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Button font size */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.submit-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.form-response {
+    margin-top: 10px; /* Space above response message */
+    color: green; /* Green color for success messages */
+    font-weight: bold; /* Bold for emphasis */
+}
+
+.footer {
+    background-color: #333; /* Dark background for the footer */
+    color: white; /* White text for contrast */
+    text-align: center; /* Center align text */
+    padding: 20px 0; /* Padding for spacing */
+}
+
+.footer p {
+    margin: 10px 0; /* Margin above and below the paragraph */
+}
+
+.social-icons {
+    margin-top: 10px; /* Space above the social icons */
+}
+
+.social-icons a {
+    margin: 0 10px; /* Space between icons */
+}
+
+.social-icons img {
+    width: 24px; /* Set width of the icons */
+    height: 24px; /* Set height of the icons */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.social-icons img:hover {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
